@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test_tyba",
+            "name": "spotify_project",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "test_tyba (profile mode)",
+            "name": "spotify_project (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "test_tyba (release mode)",
+            "name": "spotify_project (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

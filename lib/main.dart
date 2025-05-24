@@ -1,3 +1,4 @@
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_university/src/configs/router_config/package.dart';
 import 'package:flutter_university/src/di/lib/setup_di.dart';
@@ -7,18 +8,67 @@ import 'src/configs/getIt/getit_instance.dart';
 
 void main() {
   setupDI(locator);
-
   runApp(const ProviderScope(child: MainApp()));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  final _appLinks = AppLinks();
+  bool _handled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _handleDeepLinks();
+  }
+
+  void _handleDeepLinks() async {
+    _appLinks.uriLinkStream.listen(_handleUri, onError: (err) {
+      print('❌ Error escuchando uriLinkStream: $err');
+    });
+
+    try {
+      final Uri? initialLink = await _appLinks.getInitialLink();
+      if (initialLink != null) {
+        _handleUri(initialLink);
+      }
+    } catch (err) {
+      print('❌ Error obteniendo enlace inicial: $err');
+    }
+  }
+
+  void _handleUri(Uri uri) {
+    if (_handled) return;
+    _handled = true;
+
+    print('info to uri $uri');
+    final normalizedUri =
+        Uri.parse(uri.toString().replaceFirst('callback/', 'callback'));
+    print('info to normalizedUri $normalizedUri');
+
+    if (normalizedUri.queryParameters.containsKey('code')) {
+      final code = normalizedUri.queryParameters['code'];
+      print('codeUri $code');
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        appRouter.go('${RouteNames.detailPage.path}?code=$code');
+      });
+    } else {
+      print('⚠️ No se encontró parámetro code en URI: $normalizedUri');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter University',
+      title: 'Flutter Spotify',
       routerConfig: appRouter,
       themeMode: ThemeMode.system,
     );

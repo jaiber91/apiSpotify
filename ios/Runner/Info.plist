@@ -55,6 +55,16 @@
 
 		<key>NSPhotoLibraryAddUsageDescription</key>
 		<string>Necesitamos permiso para guardar imágenes en tu galería.</string>
+		
+		<key>CFBundleURLTypes</key>
+		<array>
+  		<dict>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+      			<string>myapp</string>
+    		</array>
+  		</dict>
+		</array>
 
 	</dict>
 </plist>
