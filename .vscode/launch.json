@@ -1,0 +1,125 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "test_tyba",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "test_tyba (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "test_tyba (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "adapters",
+            "cwd": "lib/src/adapters",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "adapters (profile mode)",
+            "cwd": "lib/src/adapters",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "adapters (release mode)",
+            "cwd": "lib/src/adapters",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "di",
+            "cwd": "lib/src/di",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "di (profile mode)",
+            "cwd": "lib/src/di",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "di (release mode)",
+            "cwd": "lib/src/di",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "presentation",
+            "cwd": "lib/src/presentation",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "presentation (profile mode)",
+            "cwd": "lib/src/presentation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "presentation (release mode)",
+            "cwd": "lib/src/presentation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "domain",
+            "cwd": "lib/src/business/domain",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "domain (profile mode)",
+            "cwd": "lib/src/business/domain",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "domain (release mode)",
+            "cwd": "lib/src/business/domain",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "use_cases",
+            "cwd": "lib/src/business/use_cases",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "use_cases (profile mode)",
+            "cwd": "lib/src/business/use_cases",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "use_cases (release mode)",
+            "cwd": "lib/src/business/use_cases",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

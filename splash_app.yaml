@@ -1,0 +1,13 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#FFA500"
+  image: assets/images/university.jpg
+
+  android_12:
+    color: "#FFA500"
+    image: assets/images/university.jpg
+
+
+
+  web: false
