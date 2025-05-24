@@ -1,4 +1,4 @@
-package com.example.flutter_university
+package com.example.flutter_spotify
 
 import io.flutter.embedding.android.FlutterActivity
 

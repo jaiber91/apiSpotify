@@ -5,7 +5,7 @@
         android:maxSdkVersion="28"/>
     
     <application
-        android:label="flutter_university"
+        android:label="flutter_spotify"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

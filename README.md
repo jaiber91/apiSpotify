@@ -1,4 +1,4 @@
-# flutter_university
+# flutter_spotify
 
 
 App para generar una lista de universidades

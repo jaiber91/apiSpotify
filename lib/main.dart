@@ -1,7 +1,7 @@
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_university/src/configs/router_config/package.dart';
-import 'package:flutter_university/src/di/lib/setup_di.dart';
+import 'package:flutter_spotify/src/configs/router_config/package.dart';
+import 'package:flutter_spotify/src/di/lib/setup_di.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/configs/getIt/getit_instance.dart';

@@ -15,7 +15,7 @@ dependencies:
     path: ../business/ports/in_ports
   domain:
     path: ../business/domain
-  flutter_university:
+  flutter_spotify:
     path: ../../..
   go_router: ^14.8.1
   get_it: ^8.0.3

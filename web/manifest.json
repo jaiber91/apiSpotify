@@ -1,6 +1,6 @@
 {
-    "name": "flutter_university",
-    "short_name": "flutter_university",
+    "name": "flutter_spotify",
+    "short_name": "flutter_spotify",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
