@@ -1,13 +1,29 @@
 import 'package:get_it/get_it.dart';
 import 'package:in_ports/aut_user_in_port/auth_user_in_port.dart';
+import 'package:in_ports/aut_user_in_port/get_token_in_port.dart';
+import 'package:in_ports/search_items_in_port/search_items_in_port.dart';
 import 'package:out_ports/auth_user_out_port/auth_user_out_port.dart';
 import 'package:out_ports/auth_user_out_port/get_token_out_port.dart';
+import 'package:out_ports/search_items_out_port/search_items_out_port.dart';
 import 'package:use_cases/auth_user_use_case/auth_user_use_case.dart';
+import 'package:use_cases/auth_user_use_case/get_sesion_toke_use_case.dart';
+import 'package:use_cases/search_items_use_cases/search_items_use_case.dart';
 
 void businessDI(GetIt getIt) {
   getIt.registerLazySingleton<AuthUserInPort>(
     () => AuthUserUseCase(
       getIt<AuthUserOutPort>(),
+      getIt<SessionStorageOutPort>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<GetSessionTokenInPort>(
+    () => GetSessionTokenUseCase(getIt<SessionStorageOutPort>()),
+  );
+
+  getIt.registerLazySingleton<SearchItemsInPort>(
+    () => SearchItemsUseCase(
+      getIt<SearchItemsOutPort>(),
       getIt<SessionStorageOutPort>(),
     ),
   );

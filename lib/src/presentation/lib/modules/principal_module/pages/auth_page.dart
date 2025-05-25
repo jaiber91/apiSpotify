@@ -7,6 +7,17 @@ class AuthPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final sessionAsync = ref.watch(authSessionProvider);
 
+    sessionAsync.whenData((token) {
+      if (token != null) {
+        Future.microtask(() {
+          final currentLocation = GoRouterState.of(context).uri.toString();
+          if (currentLocation != RouteNames.homePage.path) {
+            context.go(RouteNames.homePage.path);
+          }
+        });
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(title: const Text('Inicio')),
       body: sessionAsync.when(
@@ -24,7 +35,7 @@ class AuthPage extends ConsumerWidget {
             );
           } else {
             return const Center(
-              child: Text('🎵 Sesión activa con Spotify'),
+              child: Text('Sesión activa con Spotify'),
             );
           }
         },
