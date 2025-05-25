@@ -10,7 +10,7 @@ class RouterHomeModule {
         path: RouteNames.homePage.path,
         builder: (context, state) {
           final code = state.uri.queryParameters['code'];
-          return HomePage(code: code!);
+          return HomePage(code: code ?? '');
         },
       );
 }

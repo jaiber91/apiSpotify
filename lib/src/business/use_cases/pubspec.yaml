@@ -17,6 +17,8 @@ dependencies:
     path: ../ports/in_ports
   out_ports:
     path: ../ports/out_ports
+  adapters:
+    path: ../../adapters
 
 dev_dependencies:
   flutter_test:
