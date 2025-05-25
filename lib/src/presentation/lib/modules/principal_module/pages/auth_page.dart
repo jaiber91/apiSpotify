@@ -1,28 +1,34 @@
 part of '../package.dart';
 
-class AuthPage extends ConsumerStatefulWidget {
+class AuthPage extends ConsumerWidget {
   const AuthPage({super.key});
 
   @override
-  ConsumerState<AuthPage> createState() => _AuthPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final sessionAsync = ref.watch(authSessionProvider);
 
-class _AuthPageState extends ConsumerState<AuthPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Inicio')),
-      body: Center(
-          child: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              ref.read(authLoginProvider)();
-            },
-            child: const Text('Login con Spotify'),
-          ),
-        ],
-      )),
+      body: sessionAsync.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, _) => Center(child: Text('❌ Error: $err')),
+        data: (token) {
+          if (token == null) {
+            return Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  ref.read(authLoginProvider)();
+                },
+                child: const Text('Login con Spotify'),
+              ),
+            );
+          } else {
+            return const Center(
+              child: Text('🎵 Sesión activa con Spotify'),
+            );
+          }
+        },
+      ),
     );
   }
 }

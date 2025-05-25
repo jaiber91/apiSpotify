@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spotify/src/presentation/lib/shared/utils/export_di.dart';
 import 'package:in_ports/aut_user_in_port/auth_user_in_port.dart';
 import 'package:domain/auth_user_domain/auth_user_domain.dart';
+import 'package:adapters/shared/storage/secure_storage_service.dart';
 
 final authLoginProvider = Provider<void Function()>(
   (ref) {
@@ -16,3 +17,8 @@ final completeLoginProvider = FutureProvider.family<AuthUser, String>(
     return await auth.completeLogin(code);
   },
 );
+
+final authSessionProvider = FutureProvider<String?>((ref) async {
+  final storage = getIt<SecureStorageService>();
+  return await storage.readToken();
+});
