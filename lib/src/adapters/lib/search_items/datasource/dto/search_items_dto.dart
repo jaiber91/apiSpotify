@@ -6,9 +6,11 @@ part 'search_items_dto.g.dart';
 @freezed
 class SearchItemsDto with _$SearchItemsDto {
   const factory SearchItemsDto({
+    required String id,
     required String title,
     required String subtitle,
     required String imageUrl,
+    required String type,
   }) = _SearchItemsDto;
 
   factory SearchItemsDto.fromJson(Map<String, dynamic> json) =>

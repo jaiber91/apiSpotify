@@ -1,8 +1,8 @@
 import 'package:domain/search_items/search_items.dart';
 
-import '../datasource/dto/search_items_dto.dart';
+import '../datasource/dto/recommendation_dto.dart';
 
-extension SearchItemsMapper on SearchItemsDto {
+extension RecommendationMapper on RecommendationDto {
   SearchItems toDomain() {
     return SearchItems(
       id: id,

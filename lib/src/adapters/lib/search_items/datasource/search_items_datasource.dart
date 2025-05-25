@@ -1,3 +1,4 @@
+import '../../shared/http/http_path.dart';
 import '../../shared/http/http_service.dart';
 import 'dto/search_items_dto.dart';
 
@@ -8,7 +9,7 @@ class SpotifySearchDatasource {
 
   Future<List<SearchItemsDto>> search(String query, String token) async {
     final response = await _http.get(
-      path: '/v1/search',
+      path: HttpPath.pathSearch,
       queryParameters: {
         'q': query,
         'type': 'track,album,artist',
@@ -27,14 +28,18 @@ class SpotifySearchDatasource {
       String Function(dynamic) titleFn,
       String Function(dynamic) subtitleFn,
       String Function(dynamic) imageFn,
+      String Function(dynamic) idFn,
+      String type,
     ) {
       final items = data[key]?['items'] ?? [];
       for (var item in items) {
         try {
           results.add(SearchItemsDto(
+            id: idFn(item),
             title: titleFn(item),
             subtitle: subtitleFn(item),
             imageUrl: imageFn(item),
+            type: type,
           ));
         } catch (e, stack) {
           print('❌ Error mapeando $key: $e\n$stack');
@@ -63,6 +68,8 @@ class SpotifySearchDatasource {
       (e) => e['name'] ?? '',
       (e) => safeArtistName(e),
       (e) => safeImage(e['album'] ?? {}),
+      (e) => e['id'] ?? '',
+      'track',
     );
 
     extract(
@@ -70,6 +77,8 @@ class SpotifySearchDatasource {
       (e) => e['name'] ?? '',
       (e) => safeArtistName(e),
       (e) => safeImage(e),
+      (e) => e['id'] ?? '',
+      'album',
     );
 
     extract(
@@ -77,6 +86,8 @@ class SpotifySearchDatasource {
       (e) => e['name'] ?? '',
       (_) => 'Artista',
       (e) => safeImage(e),
+      (e) => e['id'] ?? '',
+      'artist',
     );
 
     return results;

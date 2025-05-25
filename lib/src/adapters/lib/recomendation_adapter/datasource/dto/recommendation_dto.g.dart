@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_items_dto.dart';
+part of 'recommendation_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchItemsDtoImpl _$$SearchItemsDtoImplFromJson(Map<String, dynamic> json) =>
-    _$SearchItemsDtoImpl(
+_$RecommendationDtoImpl _$$RecommendationDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RecommendationDtoImpl(
       id: json['id'] as String,
       title: json['title'] as String,
       subtitle: json['subtitle'] as String,
@@ -15,8 +16,8 @@ _$SearchItemsDtoImpl _$$SearchItemsDtoImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
     );
 
-Map<String, dynamic> _$$SearchItemsDtoImplToJson(
-        _$SearchItemsDtoImpl instance) =>
+Map<String, dynamic> _$$RecommendationDtoImplToJson(
+        _$RecommendationDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

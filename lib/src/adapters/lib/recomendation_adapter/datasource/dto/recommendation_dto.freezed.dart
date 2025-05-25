@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_items_dto.dart';
+part of 'recommendation_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SearchItemsDto _$SearchItemsDtoFromJson(Map<String, dynamic> json) {
-  return _SearchItemsDto.fromJson(json);
+RecommendationDto _$RecommendationDtoFromJson(Map<String, dynamic> json) {
+  return _RecommendationDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SearchItemsDto {
+mixin _$RecommendationDto {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get subtitle => throw _privateConstructorUsedError;
@@ -28,24 +28,24 @@ mixin _$SearchItemsDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchItemsDtoCopyWith<SearchItemsDto> get copyWith =>
+  $RecommendationDtoCopyWith<RecommendationDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchItemsDtoCopyWith<$Res> {
-  factory $SearchItemsDtoCopyWith(
-          SearchItemsDto value, $Res Function(SearchItemsDto) then) =
-      _$SearchItemsDtoCopyWithImpl<$Res, SearchItemsDto>;
+abstract class $RecommendationDtoCopyWith<$Res> {
+  factory $RecommendationDtoCopyWith(
+          RecommendationDto value, $Res Function(RecommendationDto) then) =
+      _$RecommendationDtoCopyWithImpl<$Res, RecommendationDto>;
   @useResult
   $Res call(
       {String id, String title, String subtitle, String imageUrl, String type});
 }
 
 /// @nodoc
-class _$SearchItemsDtoCopyWithImpl<$Res, $Val extends SearchItemsDto>
-    implements $SearchItemsDtoCopyWith<$Res> {
-  _$SearchItemsDtoCopyWithImpl(this._value, this._then);
+class _$RecommendationDtoCopyWithImpl<$Res, $Val extends RecommendationDto>
+    implements $RecommendationDtoCopyWith<$Res> {
+  _$RecommendationDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,11 +87,11 @@ class _$SearchItemsDtoCopyWithImpl<$Res, $Val extends SearchItemsDto>
 }
 
 /// @nodoc
-abstract class _$$SearchItemsDtoImplCopyWith<$Res>
-    implements $SearchItemsDtoCopyWith<$Res> {
-  factory _$$SearchItemsDtoImplCopyWith(_$SearchItemsDtoImpl value,
-          $Res Function(_$SearchItemsDtoImpl) then) =
-      __$$SearchItemsDtoImplCopyWithImpl<$Res>;
+abstract class _$$RecommendationDtoImplCopyWith<$Res>
+    implements $RecommendationDtoCopyWith<$Res> {
+  factory _$$RecommendationDtoImplCopyWith(_$RecommendationDtoImpl value,
+          $Res Function(_$RecommendationDtoImpl) then) =
+      __$$RecommendationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,11 +99,11 @@ abstract class _$$SearchItemsDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SearchItemsDtoImplCopyWithImpl<$Res>
-    extends _$SearchItemsDtoCopyWithImpl<$Res, _$SearchItemsDtoImpl>
-    implements _$$SearchItemsDtoImplCopyWith<$Res> {
-  __$$SearchItemsDtoImplCopyWithImpl(
-      _$SearchItemsDtoImpl _value, $Res Function(_$SearchItemsDtoImpl) _then)
+class __$$RecommendationDtoImplCopyWithImpl<$Res>
+    extends _$RecommendationDtoCopyWithImpl<$Res, _$RecommendationDtoImpl>
+    implements _$$RecommendationDtoImplCopyWith<$Res> {
+  __$$RecommendationDtoImplCopyWithImpl(_$RecommendationDtoImpl _value,
+      $Res Function(_$RecommendationDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$SearchItemsDtoImplCopyWithImpl<$Res>
     Object? imageUrl = null,
     Object? type = null,
   }) {
-    return _then(_$SearchItemsDtoImpl(
+    return _then(_$RecommendationDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -142,16 +142,16 @@ class __$$SearchItemsDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SearchItemsDtoImpl implements _SearchItemsDto {
-  const _$SearchItemsDtoImpl(
+class _$RecommendationDtoImpl implements _RecommendationDto {
+  const _$RecommendationDtoImpl(
       {required this.id,
       required this.title,
       required this.subtitle,
       required this.imageUrl,
       required this.type});
 
-  factory _$SearchItemsDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SearchItemsDtoImplFromJson(json);
+  factory _$RecommendationDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecommendationDtoImplFromJson(json);
 
   @override
   final String id;
@@ -166,14 +166,14 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
 
   @override
   String toString() {
-    return 'SearchItemsDto(id: $id, title: $title, subtitle: $subtitle, imageUrl: $imageUrl, type: $type)';
+    return 'RecommendationDto(id: $id, title: $title, subtitle: $subtitle, imageUrl: $imageUrl, type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchItemsDtoImpl &&
+            other is _$RecommendationDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subtitle, subtitle) ||
@@ -191,28 +191,28 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchItemsDtoImplCopyWith<_$SearchItemsDtoImpl> get copyWith =>
-      __$$SearchItemsDtoImplCopyWithImpl<_$SearchItemsDtoImpl>(
+  _$$RecommendationDtoImplCopyWith<_$RecommendationDtoImpl> get copyWith =>
+      __$$RecommendationDtoImplCopyWithImpl<_$RecommendationDtoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SearchItemsDtoImplToJson(
+    return _$$RecommendationDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _SearchItemsDto implements SearchItemsDto {
-  const factory _SearchItemsDto(
+abstract class _RecommendationDto implements RecommendationDto {
+  const factory _RecommendationDto(
       {required final String id,
       required final String title,
       required final String subtitle,
       required final String imageUrl,
-      required final String type}) = _$SearchItemsDtoImpl;
+      required final String type}) = _$RecommendationDtoImpl;
 
-  factory _SearchItemsDto.fromJson(Map<String, dynamic> json) =
-      _$SearchItemsDtoImpl.fromJson;
+  factory _RecommendationDto.fromJson(Map<String, dynamic> json) =
+      _$RecommendationDtoImpl.fromJson;
 
   @override
   String get id;
@@ -226,6 +226,6 @@ abstract class _SearchItemsDto implements SearchItemsDto {
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$SearchItemsDtoImplCopyWith<_$SearchItemsDtoImpl> get copyWith =>
+  _$$RecommendationDtoImplCopyWith<_$RecommendationDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
