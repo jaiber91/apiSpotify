@@ -5,7 +5,7 @@ final appRouter = GoRouter(
   initialLocation: RouteNames.main.path,
   navigatorKey: navigatorKey,
   routes: [
+    RouterHomeModule.authPage,
     RouterHomeModule.homePage,
-    RouterHomeModule.detailPage,
   ],
 );

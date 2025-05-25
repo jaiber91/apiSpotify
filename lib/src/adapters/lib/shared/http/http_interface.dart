@@ -12,4 +12,12 @@ class HttpInterface {
       options: Options(headers: request.headers),
     );
   }
+
+  Future<Response> post(HttpRequestDTO request) async {
+    return await dio.postUri(
+      request.uri,
+      data: request.body,
+      options: Options(headers: request.headers),
+    );
+  }
 }

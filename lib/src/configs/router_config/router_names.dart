@@ -6,8 +6,8 @@ class RouteNames {
 
   static RouterNameModel get main => _rute('/', '/');
 
-  static RouterNameModel get detailPage => _rute(
-        '/detail_page',
-        '/detail_page',
+  static RouterNameModel get homePage => _rute(
+        '/home_page',
+        '/home_page',
       );
 }

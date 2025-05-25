@@ -1,11 +1,11 @@
+import 'package:adapters/auth_adapter/adapter/auth_adapter.dart';
+import 'package:adapters/auth_adapter/datasource/auth_user_datasource.dart';
 import 'package:adapters/shared/http/http_interface.dart';
 import 'package:adapters/shared/http/http_service.dart';
-import 'package:adapters/university_adapter/adapter/get_university.dart';
-import 'package:adapters/university_adapter/datasource/get_university_datasource.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:dio/dio.dart';
-import 'package:out_ports/university_out_port/university_out_port.dart';
+import 'package:out_ports/auth_user_out_port/auth_user_out_port.dart';
 
 void adaptersDI(GetIt getIt) {
   getIt.registerSingleton<Dio>(Dio());
@@ -14,11 +14,13 @@ void adaptersDI(GetIt getIt) {
         HttpInterface(Dio()),
       ));
 
-  getIt.registerLazySingleton<GetUniversityListDatasource>(
-      () => GetUniversityListDatasource(getIt.get<HttpService>()));
+  getIt.registerLazySingleton<AuthUserDatasource>(
+    () => AuthUserDatasource(
+      httpService: getIt.get<HttpService>(),
+    ),
+  );
 
-  getIt.registerLazySingleton<GetUniversityListOutPort>(
-      () => GetUniversityListAdapter(
-            getIt.get<GetUniversityListDatasource>(),
-          ));
+  getIt.registerLazySingleton<AuthUserOutPort>(
+    () => AuthAdapter(getIt.get<AuthUserDatasource>()),
+  );
 }

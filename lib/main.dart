@@ -30,7 +30,7 @@ class _MainAppState extends State<MainApp> {
 
   void _handleDeepLinks() async {
     _appLinks.uriLinkStream.listen(_handleUri, onError: (err) {
-      print('❌ Error escuchando uriLinkStream: $err');
+      debugPrint('❌ Error escuchando uriLinkStream: $err');
     });
 
     try {
@@ -39,7 +39,7 @@ class _MainAppState extends State<MainApp> {
         _handleUri(initialLink);
       }
     } catch (err) {
-      print('❌ Error obteniendo enlace inicial: $err');
+      debugPrint('❌ Error obteniendo enlace inicial: $err');
     }
   }
 
@@ -47,20 +47,17 @@ class _MainAppState extends State<MainApp> {
     if (_handled) return;
     _handled = true;
 
-    print('info to uri $uri');
     final normalizedUri =
         Uri.parse(uri.toString().replaceFirst('callback/', 'callback'));
-    print('info to normalizedUri $normalizedUri');
 
     if (normalizedUri.queryParameters.containsKey('code')) {
       final code = normalizedUri.queryParameters['code'];
-      print('codeUri $code');
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        appRouter.go('${RouteNames.detailPage.path}?code=$code');
+        appRouter.go('${RouteNames.homePage.path}?code=$code');
       });
     } else {
-      print('⚠️ No se encontró parámetro code en URI: $normalizedUri');
+      debugPrint(' No se encontró parámetro code en URI: $normalizedUri');
     }
   }
 
