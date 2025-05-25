@@ -68,10 +68,14 @@ class SearchSection extends ConsumerWidget {
                                 : Icons.favorite_border,
                             color: Colors.red,
                           ),
-                          onPressed: () {
+                          onPressed: () async {
                             print(
                                 '⭐ Favorito seleccionado: ${item.title} (id: ${item.id}, type: ${item.type})');
-                            // Aquí puedes llamar a toggle si lo deseas
+                            await ref
+                                .read(saveTrackFavoriteProvider)([item.id]);
+                            ref
+                                .read(favoriteSeedsProvider.notifier)
+                                .toggle(item.id);
                           },
                         ),
                       );

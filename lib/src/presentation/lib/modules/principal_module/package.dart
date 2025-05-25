@@ -10,6 +10,7 @@ import '../../providers/sesion_provider.dart';
 import '../../providers/search_items_provider.dart';
 import '../../providers/favorites_seed_provider.dart';
 import '../../providers/derived_recomendation_provider.dart';
+import '../../providers/save_track_providers.dart';
 
 part 'router.dart';
 part 'pages/auth_page.dart';
