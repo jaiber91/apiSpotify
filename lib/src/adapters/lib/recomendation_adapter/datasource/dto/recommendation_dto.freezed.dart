@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-RecommendationDto _$RecommendationDtoFromJson(Map<String, dynamic> json) {
-  return _RecommendationDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$RecommendationDto {
   String get id => throw _privateConstructorUsedError;
@@ -26,7 +22,6 @@ mixin _$RecommendationDto {
   String get imageUrl => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecommendationDtoCopyWith<RecommendationDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -141,7 +136,7 @@ class __$$RecommendationDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$RecommendationDtoImpl implements _RecommendationDto {
   const _$RecommendationDtoImpl(
       {required this.id,
@@ -149,9 +144,6 @@ class _$RecommendationDtoImpl implements _RecommendationDto {
       required this.subtitle,
       required this.imageUrl,
       required this.type});
-
-  factory _$RecommendationDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecommendationDtoImplFromJson(json);
 
   @override
   final String id;
@@ -183,7 +175,6 @@ class _$RecommendationDtoImpl implements _RecommendationDto {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, title, subtitle, imageUrl, type);
@@ -194,13 +185,6 @@ class _$RecommendationDtoImpl implements _RecommendationDto {
   _$$RecommendationDtoImplCopyWith<_$RecommendationDtoImpl> get copyWith =>
       __$$RecommendationDtoImplCopyWithImpl<_$RecommendationDtoImpl>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecommendationDtoImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _RecommendationDto implements RecommendationDto {
@@ -210,9 +194,6 @@ abstract class _RecommendationDto implements RecommendationDto {
       required final String subtitle,
       required final String imageUrl,
       required final String type}) = _$RecommendationDtoImpl;
-
-  factory _RecommendationDto.fromJson(Map<String, dynamic> json) =
-      _$RecommendationDtoImpl.fromJson;
 
   @override
   String get id;

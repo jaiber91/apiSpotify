@@ -39,26 +39,26 @@ class _HomePageState extends ConsumerState<HomePage> {
       const LikedTracksSection(),
     ];
 
-    return Scaffold(
-      appBar: AppBar(title: const Text("Spotify App")),
-      body: userAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('❌ Error autenticando: $e')),
-        data: (_) => views[_selectedIndex],
+    return userAsync.when(
+      loading: () => const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Buscar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favoritos',
-          ),
-        ],
+      error: (e, _) => Scaffold(
+        body: Center(child: Text('Error autenticando: $e')),
+      ),
+      data: (_) => BaseTemplate(
+        titleAppar: _selectedIndex == 0 ? 'Buscar' : 'Favoritos',
+        showLeadingBtnAppar: false,
+        centerTitleAppar: true,
+        body: Column(
+          children: [
+            Expanded(child: views[_selectedIndex]),
+            BottomNavBarWidget(
+              selectedIndex: _selectedIndex,
+              onItemTapped: (index) => setState(() => _selectedIndex = index),
+            ),
+          ],
+        ),
       ),
     );
   }

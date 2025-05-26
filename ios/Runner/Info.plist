@@ -49,22 +49,18 @@
 		<false/>
 		<key>NSCameraUsageDescription</key>
 		<string>Necesitamos acceso a la cámara para que puedas tomar fotos.</string>
-
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>Necesitamos acceder a tus fotos para que puedas seleccionar una imagen.</string>
-
 		<key>NSPhotoLibraryAddUsageDescription</key>
 		<string>Necesitamos permiso para guardar imágenes en tu galería.</string>
-		
 		<key>CFBundleURLTypes</key>
 		<array>
-  		<dict>
-    		<key>CFBundleURLSchemes</key>
-    		<array>
-      			<string>myapp</string>
-    		</array>
-  		</dict>
+			<dict>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>myapp</string>
+				</array>
+			</dict>
 		</array>
-
 	</dict>
 </plist>

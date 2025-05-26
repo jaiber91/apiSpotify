@@ -1,6 +1,4 @@
-import 'package:get_it/get_it.dart';
-import 'adapters_di.dart';
-import 'business_di.dart';
+part of 'package.dart';
 
 void setupDI(GetIt getIt) {
   adaptersDI(getIt);

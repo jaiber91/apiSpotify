@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-LikedTrackDto _$LikedTrackDtoFromJson(Map<String, dynamic> json) {
-  return _LikedTrackDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$LikedTrackDto {
   String get id => throw _privateConstructorUsedError;
@@ -26,7 +22,6 @@ mixin _$LikedTrackDto {
   String get imageUrl => throw _privateConstructorUsedError;
   String? get previewUrl => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LikedTrackDtoCopyWith<LikedTrackDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -149,7 +144,7 @@ class __$$LikedTrackDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$LikedTrackDtoImpl implements _LikedTrackDto {
   const _$LikedTrackDtoImpl(
       {required this.id,
@@ -157,9 +152,6 @@ class _$LikedTrackDtoImpl implements _LikedTrackDto {
       required this.artist,
       required this.imageUrl,
       this.previewUrl});
-
-  factory _$LikedTrackDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LikedTrackDtoImplFromJson(json);
 
   @override
   final String id;
@@ -191,7 +183,6 @@ class _$LikedTrackDtoImpl implements _LikedTrackDto {
                 other.previewUrl == previewUrl));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, name, artist, imageUrl, previewUrl);
@@ -201,13 +192,6 @@ class _$LikedTrackDtoImpl implements _LikedTrackDto {
   @pragma('vm:prefer-inline')
   _$$LikedTrackDtoImplCopyWith<_$LikedTrackDtoImpl> get copyWith =>
       __$$LikedTrackDtoImplCopyWithImpl<_$LikedTrackDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LikedTrackDtoImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _LikedTrackDto implements LikedTrackDto {
@@ -217,9 +201,6 @@ abstract class _LikedTrackDto implements LikedTrackDto {
       required final String artist,
       required final String imageUrl,
       final String? previewUrl}) = _$LikedTrackDtoImpl;
-
-  factory _LikedTrackDto.fromJson(Map<String, dynamic> json) =
-      _$LikedTrackDtoImpl.fromJson;
 
   @override
   String get id;

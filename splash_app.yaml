@@ -2,11 +2,11 @@ flutter_native_splash:
   android: true
   ios: true
   color: "#FFA500"
-  image: assets/images/university.jpg
+  image: assets/images/music.png
 
   android_12:
     color: "#FFA500"
-    image: assets/images/university.jpg
+    image: assets/images/music.png
 
 
 

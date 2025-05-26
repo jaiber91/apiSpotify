@@ -1,7 +1,7 @@
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spotify/src/configs/router_config/package.dart';
-import 'package:flutter_spotify/src/di/lib/setup_di.dart';
+import 'package:flutter_spotify/src/di/lib/package.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/configs/getIt/getit_instance.dart';
@@ -30,7 +30,7 @@ class _MainAppState extends State<MainApp> {
 
   void _handleDeepLinks() async {
     _appLinks.uriLinkStream.listen(_handleUri, onError: (err) {
-      debugPrint('❌ Error escuchando uriLinkStream: $err');
+      debugPrint('Error escuchando uriLinkStream: $err');
     });
 
     try {
@@ -39,7 +39,7 @@ class _MainAppState extends State<MainApp> {
         _handleUri(initialLink);
       }
     } catch (err) {
-      debugPrint('❌ Error obteniendo enlace inicial: $err');
+      debugPrint('Error obteniendo enlace inicial: $err');
     }
   }
 

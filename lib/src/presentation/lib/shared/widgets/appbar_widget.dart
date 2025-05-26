@@ -16,11 +16,39 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: showBackBtn ? const BackButton() : null,
-      title: Text(title),
-      centerTitle: centerTitle,
-      actions: actions,
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFCC8400), // Naranja oscuro
+            Color(0xFFFFA500), // Naranja principal
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            offset: Offset(0, 3),
+            blurRadius: 6,
+          ),
+        ],
+      ),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: showBackBtn ? const BackButton(color: Colors.white) : null,
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+          ),
+        ),
+        centerTitle: centerTitle,
+        actions: actions,
+      ),
     );
   }
 

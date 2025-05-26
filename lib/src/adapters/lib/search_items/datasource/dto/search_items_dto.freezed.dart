@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SearchItemsDto _$SearchItemsDtoFromJson(Map<String, dynamic> json) {
-  return _SearchItemsDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$SearchItemsDto {
   String get id => throw _privateConstructorUsedError;
@@ -26,7 +22,6 @@ mixin _$SearchItemsDto {
   String get imageUrl => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchItemsDtoCopyWith<SearchItemsDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -141,7 +136,7 @@ class __$$SearchItemsDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$SearchItemsDtoImpl implements _SearchItemsDto {
   const _$SearchItemsDtoImpl(
       {required this.id,
@@ -149,9 +144,6 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
       required this.subtitle,
       required this.imageUrl,
       required this.type});
-
-  factory _$SearchItemsDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SearchItemsDtoImplFromJson(json);
 
   @override
   final String id;
@@ -183,7 +175,6 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, title, subtitle, imageUrl, type);
@@ -194,13 +185,6 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
   _$$SearchItemsDtoImplCopyWith<_$SearchItemsDtoImpl> get copyWith =>
       __$$SearchItemsDtoImplCopyWithImpl<_$SearchItemsDtoImpl>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SearchItemsDtoImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SearchItemsDto implements SearchItemsDto {
@@ -210,9 +194,6 @@ abstract class _SearchItemsDto implements SearchItemsDto {
       required final String subtitle,
       required final String imageUrl,
       required final String type}) = _$SearchItemsDtoImpl;
-
-  factory _SearchItemsDto.fromJson(Map<String, dynamic> json) =
-      _$SearchItemsDtoImpl.fromJson;
 
   @override
   String get id;

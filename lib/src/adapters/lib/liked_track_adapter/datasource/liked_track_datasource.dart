@@ -16,17 +16,8 @@ class LikedTracksDatasource {
       },
     );
 
-    final items = response.data['items'] as List;
+    final items = (response.data['items'] as List?) ?? [];
 
-    return items.map((item) {
-      final track = item['track'];
-      return LikedTrackDto(
-        id: track['id'] ?? '',
-        name: track['name'] ?? '',
-        artist: (track['artists'] as List).map((a) => a['name']).join(', '),
-        imageUrl: track['album']?['images']?[0]?['url'] ?? '',
-        previewUrl: track['preview_url'],
-      );
-    }).toList();
+    return items.map((item) => LikedTrackDto.fromJson(item)).toList();
   }
 }

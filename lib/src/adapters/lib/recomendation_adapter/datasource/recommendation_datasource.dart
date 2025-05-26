@@ -26,14 +26,6 @@ class RecommendationDatasource {
 
     final List<dynamic> tracks = response.data['tracks'] ?? [];
 
-    return tracks.map((track) {
-      return RecommendationDto(
-        id: track['id'] ?? '',
-        title: track['name'] ?? '',
-        subtitle: (track['artists'] as List).map((a) => a['name']).join(', '),
-        imageUrl: track['album']?['images']?[0]?['url'] ?? '',
-        type: track['type'] ?? '',
-      );
-    }).toList();
+    return tracks.map((track) => RecommendationDto.fromJson(track)).toList();
   }
 }
