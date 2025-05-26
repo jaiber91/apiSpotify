@@ -114,5 +114,5 @@ flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
 Cuando finaliza la serialización del modelo se debe visualizar dos archivos asi:
-**list_university_dto.freezed.dart**
-**list_university_dto.g.dart**
+**name_file_dto.freezed.dart**
+**name_file_dto.g.dart**
