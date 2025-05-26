@@ -23,6 +23,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final userAsync = ref.watch(completeLoginProvider(widget.code));
+    final titles = ['Buscar', 'Favoritos', 'Recomendados'];
 
     final views = [
       SearchSection(
@@ -37,6 +38,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         },
       ),
       const LikedTracksSection(),
+      const RecommendationsSection(),
     ];
 
     return userAsync.when(
@@ -47,7 +49,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         body: Center(child: Text('Error autenticando: $e')),
       ),
       data: (_) => BaseTemplate(
-        titleAppar: _selectedIndex == 0 ? 'Buscar' : 'Favoritos',
+        titleAppar: titles[_selectedIndex],
         showLeadingBtnAppar: false,
         centerTitleAppar: true,
         body: Column(

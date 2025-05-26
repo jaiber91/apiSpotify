@@ -12,9 +12,10 @@ import '../../providers/auth_providers.dart';
 import '../../providers/sesion_provider.dart';
 import '../../providers/search_items_provider.dart';
 import '../../providers/favorites_seed_provider.dart';
-import '../../providers/derived_recomendation_provider.dart';
+import '../../providers/recomendation_provider.dart';
 import '../../providers/save_track_providers.dart';
 import '../../providers/liked_track_provider.dart';
+import '../../providers/derived_recomendation_provider.dart';
 import '../../shared/templates/base_template.dart';
 
 part 'router.dart';
@@ -24,3 +25,4 @@ part 'widgets/search_widget.dart';
 part 'widgets/liked_track_section.dart';
 part 'widgets/audio_preview_btn.dart';
 part 'widgets/bottom_nav_widget.dart';
+part 'widgets/recomendation_section_widget.dart';

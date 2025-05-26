@@ -4,5 +4,5 @@ abstract class HttpApi {
   static String redirectUri = 'myapp://callback';
   static String clientSecret = '';
   static String scopes =
-      'user-read-email user-read-private user-library-modify user-library-read';
+      'user-read-email user-read-private user-library-modify user-library-read user-top-read';
 }

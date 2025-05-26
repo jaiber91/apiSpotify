@@ -12,13 +12,25 @@ class RecommendationDatasource {
     required List<String> seedTracks,
     required String token,
   }) async {
+    if (seedArtists.isEmpty && seedTracks.isEmpty) {
+      throw Exception('Debes proporcionar al menos un seed (artist o track)');
+    }
+
+    final queryParameters = <String, String>{
+      'limit': '10',
+    };
+
+    if (seedArtists.isNotEmpty) {
+      queryParameters['seed_artists'] = seedArtists.join(',');
+    }
+
+    if (seedTracks.isNotEmpty) {
+      queryParameters['seed_tracks'] = seedTracks.join(',');
+    }
+
     final response = await _http.get(
       path: HttpPath.pathrecommendations,
-      queryParameters: {
-        'seed_artists': seedArtists.join(','),
-        'seed_tracks': seedTracks.join(','),
-        'limit': '10',
-      },
+      queryParameters: queryParameters,
       headers: {
         'Authorization': 'Bearer $token',
       },

@@ -11,15 +11,15 @@ class RecommendationUseCase implements RecommendationInPort {
 
   @override
   Future<List<SearchItems>> getRecommendations({
-    required List<String> seedArtists,
     required List<String> seedTracks,
+    List<String> seedArtists = const [],
   }) async {
     final token = await _storage.readToken();
     if (token == null) throw Exception('Token no disponible');
 
     return await _outPort.getRecommendations(
-      seedArtists: seedArtists,
       seedTracks: seedTracks,
+      seedArtists: seedArtists,
       token: token,
     );
   }

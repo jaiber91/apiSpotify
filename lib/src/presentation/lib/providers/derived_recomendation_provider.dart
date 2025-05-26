@@ -3,17 +3,17 @@ import 'package:domain/search_items/search_items.dart';
 import '../providers/favorites_seed_provider.dart';
 import '../providers/recomendation_provider.dart';
 
-final derivedRecommendationsProvider = FutureProvider<List<SearchItems>>((ref) {
+final derivedRecommendationsProvider =
+    FutureProvider<List<SearchItems>>((ref) async {
   final seeds = ref.watch(favoriteSeedsProvider);
 
-  if (seeds.isEmpty) return Future.value([]);
+  if (seeds.isEmpty) return [];
 
-  return ref.watch(
-    recommendationsProvider(
-      (
-        seedArtists: seeds.toList(),
-        seedTracks: [],
-      ),
-    ).future,
-  );
+  try {
+    return await ref.watch(
+      recommendationsProvider(seeds.toList()).future,
+    );
+  } catch (e) {
+    throw Exception('Recomendaciones no disponibles en este momento.');
+  }
 });
