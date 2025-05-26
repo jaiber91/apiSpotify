@@ -7,5 +7,5 @@ abstract class HttpPath {
   static const String path = '/v1/me';
   static const String pathSearch = '/v1/search';
   static const String pathrecommendations = '/v1/recommendations';
-  static const String pathSaveTrack = '/v1/me/tracks';
+  static const String pathTrack = '/v1/me/tracks';
 }

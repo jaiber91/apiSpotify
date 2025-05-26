@@ -8,7 +8,7 @@ class DatasourceSaveTrack {
 
   Future<void> saveTracks(List<String> trackIds, String token) async {
     await _http.put(
-      path: HttpPath.pathSaveTrack,
+      path: HttpPath.pathTrack,
       queryParameters: {
         'ids': trackIds.join(','),
       },

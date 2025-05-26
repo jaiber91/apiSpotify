@@ -11,6 +11,7 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   String _query = '';
+  int _selectedIndex = 0;
   Timer? _debounce;
 
   @override
@@ -23,22 +24,41 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     final userAsync = ref.watch(completeLoginProvider(widget.code));
 
+    final views = [
+      SearchSection(
+        query: _query,
+        onQueryChanged: (value) {
+          if (_debounce?.isActive ?? false) _debounce?.cancel();
+          _debounce = Timer(const Duration(milliseconds: 500), () {
+            setState(() {
+              _query = value.trim();
+            });
+          });
+        },
+      ),
+      const LikedTracksSection(),
+    ];
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Buscar en Spotify")),
+      appBar: AppBar(title: const Text("Spotify App")),
       body: userAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('❌ Error autenticando: $e')),
-        data: (_) => SearchSection(
-          query: _query,
-          onQueryChanged: (value) {
-            if (_debounce?.isActive ?? false) _debounce?.cancel();
-            _debounce = Timer(const Duration(milliseconds: 500), () {
-              setState(() {
-                _query = value.trim();
-              });
-            });
-          },
-        ),
+        data: (_) => views[_selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) => setState(() => _selectedIndex = index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Buscar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favoritos',
+          ),
+        ],
       ),
     );
   }
