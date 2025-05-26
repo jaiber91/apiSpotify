@@ -1,7 +1,7 @@
 # flutter_spotify
 
 
-App para generar una lista de universidades
+App para buscar musica en spotify
 
 ## Tecnologías y/o paquetes del proyecto
 
@@ -15,6 +15,7 @@ App para generar una lista de universidades
 - json_serializable: 6.8.0
 - build_runner: 2.4.9
 - just_audio: ^0.10.3
+- app_links: ^6.4.0
 
 ## Estructura de carpetas
 La siguiente estructura de carpetas, se realiza pensando en que es un proyecto que va a crecer de manera constante y acelerada; por ende, se propone tener capas lo mas aisladas posibles en dónde quienes hacen de "puentes" entre cada capa son los puertos; adicional si se requiere diseñar y ejecutar test, estos se pueden hacer en la capa que corresponde y no dependen de un archivo global o único dentro del proyecto
@@ -25,10 +26,11 @@ La siguiente estructura de carpetas, se realiza pensando en que es un proyecto q
     ├── main.dart
     └── src/
         ├── adapters/
+        |   └── test/
         │   └── lib/
         │       ├── shared/
         │       │   └── http
-        │       └── university_adapter/
+        │       └── folder_adapter/
         │           ├── adapter
         │           ├── datasource
         │           └── mappers
@@ -45,6 +47,7 @@ La siguiente estructura de carpetas, se realiza pensando en que es un proyecto q
         │   │       └── lib/
         │   │           └── folder_out_ports
         │   └── use_cases/
+        |       └── test/
         │       └── lib/
         │           └── folder_use_cases
         |
@@ -116,3 +119,20 @@ flutter pub run build_runner build --delete-conflicting-outputs
 Cuando finaliza la serialización del modelo se debe visualizar dos archivos asi:
 **name_file_dto.freezed.dart**
 **name_file_dto.g.dart**
+
+
+## Agregar credenciales de API
+Para poder hacer las peticiones se necesita el **clientId** y el  ***clientSecret**. Estos se gestioann directamente
+en **https://developer.spotify.com/**. Una véz tengan esos dos datos se debe buscar el archivo **http_api.dart** y agregarlos
+
+
+## Test
+Los test se integraron en la capa de adapters y casos de uso. Estos se puede ejecutar de manera individual o 
+en conjunto.
+**Ejecutar Test individualmente**
+- Se puede ubicar el archivo del test y en sobre el main se debe dar click en la opción que dice **Run**
+- También se puede ejecutar el siguiente comando desde la raíz del proyecto:
+
+ ```shell
+find . -name "pubspec.yaml" -execdir flutter test \;
+```
