@@ -5,7 +5,7 @@ import 'package:out_ports/search_items_out_port/search_items_out_port.dart';
 import '../datasource/search_items_datasource.dart';
 
 class SearchItemsAdapter implements SearchItemsOutPort {
-  final SpotifySearchDatasource _spotifySearchDatasource;
+  final SearchDatasource _spotifySearchDatasource;
 
   SearchItemsAdapter(this._spotifySearchDatasource);
 

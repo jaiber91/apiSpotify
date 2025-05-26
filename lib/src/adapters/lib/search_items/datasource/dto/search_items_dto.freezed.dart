@@ -14,17 +14,14 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SearchItemsDto _$SearchItemsDtoFromJson(Map<String, dynamic> json) {
-  return _SearchItemsDto.fromJson(json);
-}
-
 /// @nodoc
 mixin _$SearchItemsDto {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get subtitle => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchItemsDtoCopyWith<SearchItemsDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -36,7 +33,8 @@ abstract class $SearchItemsDtoCopyWith<$Res> {
           SearchItemsDto value, $Res Function(SearchItemsDto) then) =
       _$SearchItemsDtoCopyWithImpl<$Res, SearchItemsDto>;
   @useResult
-  $Res call({String title, String subtitle, String imageUrl});
+  $Res call(
+      {String id, String title, String subtitle, String imageUrl, String type});
 }
 
 /// @nodoc
@@ -52,11 +50,17 @@ class _$SearchItemsDtoCopyWithImpl<$Res, $Val extends SearchItemsDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? subtitle = null,
     Object? imageUrl = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -68,6 +72,10 @@ class _$SearchItemsDtoCopyWithImpl<$Res, $Val extends SearchItemsDto>
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +89,8 @@ abstract class _$$SearchItemsDtoImplCopyWith<$Res>
       __$$SearchItemsDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String subtitle, String imageUrl});
+  $Res call(
+      {String id, String title, String subtitle, String imageUrl, String type});
 }
 
 /// @nodoc
@@ -95,11 +104,17 @@ class __$$SearchItemsDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? subtitle = null,
     Object? imageUrl = null,
+    Object? type = null,
   }) {
     return _then(_$SearchItemsDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -112,29 +127,38 @@ class __$$SearchItemsDtoImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$SearchItemsDtoImpl implements _SearchItemsDto {
   const _$SearchItemsDtoImpl(
-      {required this.title, required this.subtitle, required this.imageUrl});
+      {required this.id,
+      required this.title,
+      required this.subtitle,
+      required this.imageUrl,
+      required this.type});
 
-  factory _$SearchItemsDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SearchItemsDtoImplFromJson(json);
-
+  @override
+  final String id;
   @override
   final String title;
   @override
   final String subtitle;
   @override
   final String imageUrl;
+  @override
+  final String type;
 
   @override
   String toString() {
-    return 'SearchItemsDto(title: $title, subtitle: $subtitle, imageUrl: $imageUrl)';
+    return 'SearchItemsDto(id: $id, title: $title, subtitle: $subtitle, imageUrl: $imageUrl, type: $type)';
   }
 
   @override
@@ -142,16 +166,18 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchItemsDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, subtitle, imageUrl);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, subtitle, imageUrl, type);
 
   @JsonKey(ignore: true)
   @override
@@ -159,30 +185,26 @@ class _$SearchItemsDtoImpl implements _SearchItemsDto {
   _$$SearchItemsDtoImplCopyWith<_$SearchItemsDtoImpl> get copyWith =>
       __$$SearchItemsDtoImplCopyWithImpl<_$SearchItemsDtoImpl>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SearchItemsDtoImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _SearchItemsDto implements SearchItemsDto {
   const factory _SearchItemsDto(
-      {required final String title,
+      {required final String id,
+      required final String title,
       required final String subtitle,
-      required final String imageUrl}) = _$SearchItemsDtoImpl;
+      required final String imageUrl,
+      required final String type}) = _$SearchItemsDtoImpl;
 
-  factory _SearchItemsDto.fromJson(Map<String, dynamic> json) =
-      _$SearchItemsDtoImpl.fromJson;
-
+  @override
+  String get id;
   @override
   String get title;
   @override
   String get subtitle;
   @override
   String get imageUrl;
+  @override
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$SearchItemsDtoImplCopyWith<_$SearchItemsDtoImpl> get copyWith =>
