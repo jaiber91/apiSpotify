@@ -11,11 +11,10 @@ App para generar una lista de universidades
 - go_router: 14.8.1
 - flutter_riverpod: 2.6.1
 - url_launcher: 6.3.1
-- cupertino_icons: 1.0.8
 - freezed: 2.4.7
 - json_serializable: 6.8.0
 - build_runner: 2.4.9
-- image_picker: ^1.1.2
+- just_audio: ^0.10.3
 
 ## Estructura de carpetas
 La siguiente estructura de carpetas, se realiza pensando en que es un proyecto que va a crecer de manera constante y acelerada; por ende, se propone tener capas lo mas aisladas posibles en dónde quienes hacen de "puentes" entre cada capa son los puertos; adicional si se requiere diseñar y ejecutar test, estos se pueden hacer en la capa que corresponde y no dependen de un archivo global o único dentro del proyecto
@@ -37,17 +36,17 @@ La siguiente estructura de carpetas, se realiza pensando en que es un proyecto q
         ├── business/
         │   ├── domain/
         │   │   └── lib/
-        │   │       └── university_doamin
+        │   │       └── folder_domain
         │   ├── ports/
         │   │   ├── in_ports/
         │   │   │   └── lib/
-        │   │   │       └── university_in_ports
+        │   │   │       └── folder_in_ports
         │   │   └── out_ports/
         │   │       └── lib/
-        │   │           └── university_out_ports
+        │   │           └── folder_out_ports
         │   └── use_cases/
         │       └── lib/
-        │           └── university_use_cases
+        │           └── folder_use_cases
         |
         ├── configs/
         │   ├── getIt
@@ -62,8 +61,9 @@ La siguiente estructura de carpetas, se realiza pensando en que es un proyecto q
         └── presentation/
             └── lib/
                 ├── modules/
-                │   └── university_module/
+                │   └── principal_module/
                 │       ├── pages
+                |       ├── widgets
                 │       ├── package.dart
                 │       └── router.dart
                 ├── providers
